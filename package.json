@@ -1,5 +1,5 @@
 {
-  "name": "arianne-downloader",
+  "name": "arianne",
   "description": "An app for fast file downloading.",
   "keywords": [
     "electron",
@@ -177,8 +177,8 @@
     "webpack-merge": "^5.8.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "arianne",
+    "appId": "io.github.jaroslawpokropinski.arianne",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -232,16 +232,9 @@
       "output": "release/build"
     },
     "extraResources": [
-      "./assets/**"
-    ],
-    "publish": {
-      "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
-    }
-  },
-  "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
+      "./assets/**",
+      "./extra/**"
+    ]
   },
   "devEngines": {
     "node": ">=14.x",

@@ -5,7 +5,7 @@ import { Service } from 'typedi';
 import Aria2 from 'aria2';
 import ws from 'ws';
 import path, { basename } from 'path';
-import { handleError } from '../../util';
+import { getAppPath, handleError } from '../../util';
 import { FileInput } from '../WebService/schema/FileInput';
 import type { DownloadingFile } from '../WebService/schema/DownloadingFile';
 import {
@@ -85,7 +85,7 @@ export class AriaService {
 
   private async start() {
     this.instance = spawn(
-      `${app.getAppPath()}/extra/aria2/aria2c.exe`,
+      `${getAppPath(false)}/extra/aria2/aria2c.exe`,
       this.buildArgs(),
       {
         stdio: 'inherit',

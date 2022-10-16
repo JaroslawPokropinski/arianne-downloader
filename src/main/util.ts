@@ -1,6 +1,7 @@
 /* eslint import/prefer-default-export: off */
 import { URL } from 'url';
 import path from 'path';
+import { app } from 'electron';
 import log from 'electron-log';
 
 export function resolveHtmlPath(htmlFileName: string) {
@@ -23,4 +24,11 @@ export function handleError(error: Error | unknown) {
   }
 
   return log.error('unknown error');
+}
+
+export function getAppPath(asar = true) {
+  if (asar) {
+    app.getAppPath();
+  }
+  return path.resolve(path.join(app.getAppPath(), '..'));
 }
