@@ -22,7 +22,7 @@
     "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
     "prepare": "husky install",
     "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir release/app",
-    "start": "node --loader ts-node/esm ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
+    "start": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
     "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only .",
     "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.preload.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
@@ -89,7 +89,7 @@
     }
   },
   "dependencies": {
-    "apollo-server": "^3.10.2",
+    "@apollo/server": "^4.0.1",
     "aria2": "^4.1.2",
     "axios": "^0.27.2",
     "class-validator": "^0.13.2",
@@ -97,8 +97,8 @@
     "electron-json-storage": "^4.5.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.2.3",
-    "graphql": "^15.8.0",
-    "node-fetch": "^2.6.7",
+    "graphql": "^15.3.0",
+    "graphql-tools": "^8.3.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
@@ -179,7 +179,7 @@
   "build": {
     "productName": "arianne",
     "appId": "io.github.jaroslawpokropinski.arianne",
-    "asar": true,
+    "asar": false,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
       "dist",

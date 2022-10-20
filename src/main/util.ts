@@ -26,9 +26,10 @@ export function handleError(error: Error | unknown) {
   return log.error('unknown error');
 }
 
-export function getAppPath(asar = true) {
-  if (asar) {
-    app.getAppPath();
+export function getRootPath() {
+  const appPath = app.getAppPath();
+  if (appPath.endsWith('app')) {
+    return path.resolve(path.join(appPath, '..'));
   }
-  return path.resolve(path.join(app.getAppPath(), '..'));
+  return appPath;
 }

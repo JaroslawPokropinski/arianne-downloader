@@ -19,6 +19,7 @@ import { resolveHtmlPath } from './util';
 import { AriaService } from './services/AriaService';
 import { WebService } from './services/WebService';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
@@ -111,7 +112,7 @@ const createWindow = async () => {
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
-  new AppUpdater();
+  // new AppUpdater();
 };
 
 /**

@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from 'type-graphql';
 
-@ObjectType()
+@ObjectType('DownloadingFile')
 export class DownloadingFile {
   @Field(() => ID)
   id!: string;

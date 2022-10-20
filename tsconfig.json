@@ -5,7 +5,8 @@
     "module": "CommonJS",
     "lib": [
       "dom",
-      "es2021"
+      "es2021",
+      "esnext.asynciterable"
     ],
     "jsx": "react-jsx",
     "strict": true,

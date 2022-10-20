@@ -5,7 +5,7 @@ import { Service } from 'typedi';
 import Aria2 from 'aria2';
 import ws from 'ws';
 import path, { basename } from 'path';
-import { getAppPath, handleError } from '../../util';
+import { getRootPath, handleError } from '../../util';
 import { FileInput } from '../WebService/schema/FileInput';
 import type { DownloadingFile } from '../WebService/schema/DownloadingFile';
 import {
@@ -85,7 +85,7 @@ export class AriaService {
 
   private async start() {
     this.instance = spawn(
-      `${getAppPath(false)}/extra/aria2/aria2c.exe`,
+      `${getRootPath()}/extra/aria2/aria2c.exe`,
       this.buildArgs(),
       {
         stdio: 'inherit',
@@ -128,7 +128,7 @@ export class AriaService {
   private buildArgs() {
     const sessionPath = `${app.getPath('userData')}/download.session`;
     const argsObj = {
-      '--conf-path': `${app.getAppPath()}/extra/aria2/aria2.conf`,
+      '--conf-path': `${getRootPath()}/extra/aria2/aria2.conf`,
       '--save-session': sessionPath,
       '--input-file': existsSync(sessionPath) ? sessionPath : null,
       '--rpc-listen-port': 16800,
