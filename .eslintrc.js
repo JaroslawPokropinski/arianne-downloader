@@ -8,6 +8,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'off',
+    'import/export': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,
