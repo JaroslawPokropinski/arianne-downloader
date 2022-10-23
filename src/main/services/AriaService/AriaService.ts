@@ -88,7 +88,8 @@ export class AriaService {
       `${getRootPath()}/extra/aria2/aria2c.exe`,
       this.buildArgs(),
       {
-        stdio: 'inherit',
+        stdio: 'ignore',
+        detached: true,
       }
     );
 

@@ -139,5 +139,10 @@ app
   })
   .catch(console.log);
 
+app.setLoginItemSettings({
+  openAtLogin: true,
+  openAsHidden: true,
+});
+
 Container.get(AriaService);
 Container.get(WebService);
