@@ -141,7 +141,6 @@ app
 
 app.setLoginItemSettings({
   openAtLogin: true,
-  openAsHidden: true,
 });
 
 Container.get(AriaService);
